@@ -1,0 +1,11 @@
+name = "slack-poker"
+main = "src/index.ts"
+compatibility_date = "2026-03-14"
+
+# After creating KV namespace, uncomment and fill in:
+# npx wrangler kv namespace create LEADERBOARD
+# npx wrangler kv namespace create LEADERBOARD --preview
+[[kv_namespaces]]
+binding = "LEADERBOARD"
+id = "b6e3a1a48c524df9bf5feb4f3fe67f50"
+preview_id = "3697f913cebd401bb8e55a0f917c1195"
