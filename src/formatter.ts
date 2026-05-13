@@ -85,6 +85,19 @@ export function formatError(message: string): SlackResponse {
   };
 }
 
+const SURPASS_TEMPLATES = [
+  (a: string, b: string) => `<@${a}> vừa vượt <@${b}> rồi kìa 😏 <@${b}> ơi tỉnh dậy đi nào`,
+  (a: string, b: string) => `<@${a}> leo qua đầu <@${b}> rồi nè, chịu nổi không? 😤`,
+  (a: string, b: string) => `Và thế là, <@${b}> bị <@${a}> bỏ lại rồi đấy 🏃‍♂️💨`,
+  (a: string, b: string) => `<@${b}> ơi... <@${a}> qua mặt rồi kìa 😭`,
+  (a: string, b: string) => `🔥 <@${a}> vừa vươn lên trên <@${b}> rồi nha! <@${b}> cố lên nhé!!!!`,
+];
+
+export function formatSurpassMessage(surpasserId: string, surpassedId: string): string {
+  const template = SURPASS_TEMPLATES[Math.floor(Math.random() * SURPASS_TEMPLATES.length)];
+  return template(surpasserId, surpassedId);
+}
+
 interface SlackResponse {
   response_type: "in_channel" | "ephemeral";
   blocks: Array<{
