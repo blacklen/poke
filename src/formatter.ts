@@ -1,4 +1,5 @@
 import type { StickerEntry } from "./stickers";
+import templates from "./templates.json";
 
 const MEDALS = ["🥇", "🥈", "🥉"];
 
@@ -28,6 +29,9 @@ export function formatLeaderboard(entries: StickerEntry[]): SlackResponse {
     const filled = max > 0 ? Math.round((entry.count / max) * TRACK_LEN) : 0;
     const flag = i === 0 ? "🏁" : "🏃";
     const track = "—".repeat(filled) + flag;
+    if (i === 0) {
+      return `${medal} <@${entry.userId}>, you're the champion with *${entry.count}* stickers!`;
+    }
     return `${medal} <@${entry.userId}> ${track} *${entry.count}*`;
   });
 
@@ -85,18 +89,93 @@ export function formatError(message: string): SlackResponse {
   };
 }
 
-const SURPASS_TEMPLATES = [
-  (a: string, b: string) => `<@${a}> vừa vượt <@${b}> rồi kìa 😏 <@${b}> ơi tỉnh dậy đi nào`,
-  (a: string, b: string) => `<@${a}> leo qua đầu <@${b}> rồi nè, chịu nổi không? 😤`,
-  (a: string, b: string) => `Và thế là, <@${b}> bị <@${a}> bỏ lại rồi đấy 🏃‍♂️💨`,
-  (a: string, b: string) => `<@${b}> ơi... <@${a}> qua mặt rồi kìa 😭`,
-  (a: string, b: string) => `🔥 <@${a}> vừa vươn lên trên <@${b}> rồi nha! <@${b}> cố lên nhé!!!!`,
-];
-
-export function formatSurpassMessage(surpasserId: string, surpassedId: string): string {
-  const template = SURPASS_TEMPLATES[Math.floor(Math.random() * SURPASS_TEMPLATES.length)];
-  return template(surpasserId, surpassedId);
+function pick<T>(pool: T[]): T {
+  return pool[Math.floor(Math.random() * pool.length)];
 }
+
+function interpolate(template: string, vars: Record<string, string>): string {
+  return template.replace(/\{(\w+)\}/g, (m, key) => vars[key] ?? m);
+}
+
+function gifBlock(gifs: string[]): MessageBlock {
+  return {
+    type: "image",
+    image_url: pick(gifs),
+    alt_text: "chúc mừng!",
+  };
+}
+
+export interface ChannelMessage {
+  text: string;
+  blocks?: MessageBlock[];
+}
+
+export interface CongratsContext {
+  userId: string;
+  newTotal: number;
+  oldTotal: number;
+  rank: number;
+  amount: number;
+}
+
+export function formatCongratsMessage(ctx: CongratsContext): ChannelMessage {
+  const { champion, milestone, bigDrop, regular } = templates.congrats;
+
+  let pool: { templates: string[]; gifs: string[] } = regular;
+  if (ctx.rank === 1) {
+    pool = champion;
+  } else if (
+    milestone.thresholds.some((m) => ctx.oldTotal < m && ctx.newTotal >= m)
+  ) {
+    pool = milestone;
+  } else if (ctx.amount >= bigDrop.minAmount) {
+    pool = bigDrop;
+  }
+
+  const text = interpolate(pick(pool.templates), {
+    user: `<@${ctx.userId}>`,
+    total: ctx.newTotal.toString(),
+    amount: ctx.amount.toString(),
+    rank: ctx.rank.toString(),
+  });
+
+  return {
+    text,
+    blocks: [
+      { type: "section", text: { type: "mrkdwn", text } },
+      gifBlock(pool.gifs),
+    ],
+  };
+}
+
+export function formatSurpassMessage(
+  surpasserId: string,
+  surpassedIds: string[],
+  dethronedChampion: boolean
+): ChannelMessage {
+  const { dethrone, multi, regular } = templates.surpass;
+  const pool = dethronedChampion ? dethrone : surpassedIds.length > 1 ? multi : regular;
+
+  const text = interpolate(pick(pool.templates), {
+    surpasser: `<@${surpasserId}>`,
+    surpassed: surpassedIds.map((id) => `<@${id}>`).join(", "),
+  });
+
+  if (dethronedChampion) {
+    return {
+      text,
+      blocks: [
+        { type: "section", text: { type: "mrkdwn", text } },
+        gifBlock(dethrone.gifs),
+      ],
+    };
+  }
+  return { text };
+}
+
+type MessageBlock =
+  | { type: "section"; text: { type: string; text: string } }
+  | { type: "image"; image_url: string; alt_text: string };
 
 interface SlackResponse {
   response_type: "in_channel" | "ephemeral";

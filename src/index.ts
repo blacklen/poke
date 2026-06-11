@@ -5,6 +5,7 @@ import {
   formatLeaderboard,
   formatHelp,
   formatError,
+  formatCongratsMessage,
   formatSurpassMessage,
 } from "./formatter";
 
@@ -46,6 +47,7 @@ export default {
         // Snapshot leaderboard before update to detect surpassing
         const oldLeaderboard = await getLeaderboard(env.LEADERBOARD);
         const oldRank = oldLeaderboard.findIndex((e) => e.userId === command.targetUserId);
+        const oldTotal = oldRank === -1 ? 0 : oldLeaderboard[oldRank].count;
 
         const newTotal = await updateStickers(
           env.LEADERBOARD,
@@ -56,21 +58,26 @@ export default {
         // Get leaderboard to find recipient's new rank
         const leaderboard = await getLeaderboard(env.LEADERBOARD);
         const rank = leaderboard.findIndex((e) => e.userId === command.targetUserId) + 1;
-        const rankText = rank > 0 ? `#${rank} on the leaderboard` : "on the leaderboard";
 
-        const postMessage = (text: string) =>
+        const postMessage = (message: { text: string; blocks?: object[] }) =>
           fetch("https://slack.com/api/chat.postMessage", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${env.SLACK_BOT_TOKEN}`,
             },
-            body: JSON.stringify({ channel: channelId, text }),
+            body: JSON.stringify({ channel: channelId, ...message }),
           });
 
         // Post congratulatory message to the recipient
         await postMessage(
-          `Congrats <@${command.targetUserId}>! 🎉\nYou now have *${newTotal}* 🌟 and you're ${rankText}!`
+          formatCongratsMessage({
+            userId: command.targetUserId,
+            newTotal,
+            oldTotal,
+            rank,
+            amount: command.amount,
+          })
         );
 
         // Detect and announce surpassing (only when giving stickers)
@@ -81,8 +88,17 @@ export default {
           const surpassed = oldLeaderboard.slice(newRank, oldRankIdx).filter(
             (e) => e.userId !== command.targetUserId
           );
-          for (const displaced of surpassed) {
-            await postMessage(formatSurpassMessage(command.targetUserId, displaced.userId));
+          if (surpassed.length > 0) {
+            const dethronedChampion =
+              oldLeaderboard.length > 0 &&
+              surpassed.some((e) => e.userId === oldLeaderboard[0].userId);
+            await postMessage(
+              formatSurpassMessage(
+                command.targetUserId,
+                surpassed.map((e) => e.userId),
+                dethronedChampion
+              )
+            );
           }
         }
 

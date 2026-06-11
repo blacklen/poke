@@ -1,0 +1,151 @@
+{
+  "congrats": {
+    "champion": {
+      "templates": [
+        "Trời ơi biến, {user} top 1 rồi kìa mọi người ơiiii 👑",
+        "Ủa khoan… {user} lên top 1 luôn rồi hả?? Ai cho phép 😤",
+        "Triều đại mới bắt đầu. {user} lên ngôi, tất cả quỳ xuống 🙇",
+        "Một buổi lễ đăng quang nho nhỏ cho {user} 👑 xin quý vị giữ trật tự",
+        "{user} hiện đang ngồi trên đầu cả server 👑 (no king rules forever, but today is not that day)",
+        "Breaking news 🚨 {user} chiếm đỉnh bảng xếp hạng, dân tình hoang mang",
+        "{user} top 1 rồi… em xin phép đi ganh tị một chút 🥲",
+        "Từ hôm nay gọi {user} là sếp giùm 🫡",
+        "Đỉnh của chóp 🏔️ {user} đứng đầu bảng rồi nha",
+        "{user} lên top 1 nhẹ nhàng như chưa hề có cuộc chia ly 👑"
+      ],
+      "gifs": [
+        "https://media.giphy.com/media/g9582DNuQppxC/giphy.gif",
+        "https://media.giphy.com/media/26BRBKqUiq586bRVm/giphy.gif"
+      ]
+    },
+    "milestone": {
+      "thresholds": [10, 25, 50, 100],
+      "templates": [
+        "Ơ kìa {user} chẵn *{total}* 🌟 luôn rồi, khao đi chứ nhỉ 🍜",
+        "*{total}* cái rồi đó {user} ơi, để dành làm của hồi môn hả 😏",
+        "Một cột mốc lịch sử: *{total}* sticker. người ta gọi {user} là huyền thoại từ đây 🗿",
+        "Cán mốc *{total}* 🌟! {user} ơi bánh kem đâu 🎂",
+        "*{total}* sticker tròn trĩnh, con số biết nói đó nha {user} 😎",
+        "Achievement unlocked 🏅 {user} đạt *{total}* 🌟",
+        "Chúc mừng {user} chạm mốc *{total}* 🌟, hành trình vạn dặm bắt đầu từ một cái sticker 🛤️",
+        "*{total}* rồi đó {user}, sắp đổi được nhà chưa 🏠",
+        "Level up 📈 {user} full *{total}* 🌟 trong kho đồ",
+        "Xin trân trọng thông báo: kho sticker của {user} đã đạt *{total}* cái, mời cả nhà chung vui 🎊"
+      ],
+      "gifs": [
+        "https://media.giphy.com/media/26u4cqiYI30juCOGY/giphy.gif",
+        "https://media.giphy.com/media/26gssIytJvy1b1THO/giphy.gif"
+      ]
+    },
+    "bigDrop": {
+      "minAmount": 2,
+      "templates": [
+        "{user} được hẳn {amount} cái một lượt?? quen ai trong ban tổ chức khai ra 🤨, nhảy thẳng lên hạng #{rank} luôn 🚀",
+        "Mưa sticker rơi trúng đầu {user} rồi kìa, hên dữ 🤑, leo lên hạng #{rank} cái rẹt",
+        "Jackpot 🎰 {user} hốt {amount} 🌟 trong một nốt nhạc — hạng #{rank} trong tầm tay",
+        "Ai đó vừa rải {amount} sticker cho {user}, chơi lớn ghê 💸, giờ đứng hạng #{rank} rồi đó",
+        "{user} trúng số độc đắc {amount} 🌟, nhớ chia lộc nha 🧧, phi thẳng lên hạng #{rank}",
+        "Combo x{amount} cho {user} 💥 ai chơi gì kỳ vậy (hạng #{rank} luôn nha)",
+        "{amount} cái một lần?? {user} làm gì mà được thương dữ vậy 🥹, hạng #{rank} không còn xa",
+        "Kho báu vừa cập bến nhà {user} 🏴‍☠️ {amount} 🌟 luôn nha, top #{rank} rồi nha",
+        "{user} ơi chia bớt đi, ôm {amount} 🌟 một mình mập đó 😤, lên hạng #{rank} một phát ăn ngay",
+        "Flash sale ngược: {user} được tặng {amount} 🌟 free 🛒, chễm chệ ở hạng #{rank}",
+        "{user} hốt {amount} 🌟 một lượt, nhảy thẳng lên hạng #{rank} luôn 🚀",
+        "Combo x{amount} đưa {user} lên hạng #{rank}, quá khủng 💥",
+        "{user} vừa được tặng {amount} 🌟, giờ đứng hạng #{rank} rồi đó nha 🏆",
+        "Cú nổ {amount} 🌟 giúp {user} leo lên hạng #{rank} 📈",
+        "{user} ẵm trọn {amount} 🌟, hạng #{rank} trong tầm tay 🤲"
+      ],
+      "gifs": [
+        "https://media.giphy.com/media/LdOyjZ7io5Msw/giphy.gif",
+        "https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif",
+        "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+        "https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif"
+      ]
+    },
+    "regular": {
+      "templates": [
+        "Ủa {user} lại được sticker nữa hả 👀, hạng #{rank} luôn rồi nha",
+        "Ai vừa cho {user} sticker đó, khai mau 🫵 — đang đứng hạng #{rank} đó",
+        "{user} dạo này được hên dữ ta 😏, hạng #{rank} không còn xa nữa",
+        "Kính thưa quý vị 🎭 hôm nay {user} lại được người ta thương, thêm một 🌟 vào bộ sưu tập, hiện đang hạng #{rank}",
+        "Xin một tràng pháo tay cho {user} 👏👏👏, lên hạng #{rank} luôn nè",
+        "{user} mới nhận thêm sticker ( ˘▽˘)っ♨, giữ vững hạng #{rank}",
+        "Sticker delivery 📦 cho {user}, ký nhận giùm cái, hạng #{rank} xứng đáng ghê",
+        "+1 🌟 vào ví {user}. Thích ghê 😤, top #{rank} rồi đó nha",
+        "Tình hình là {user} vừa được sticker, còn tui thì vẫn chưa 🥲, hạng #{rank} đáng nể đấy",
+        "Nghe đồn {user} mới được sticker 👀 (hạng #{rank})",
+        "{user} vừa nhận thêm 1 🌟, đời vẫn còn đẹp lắm nha 🌈, hạng #{rank} luôn rồi nha",
+        "Có ai để ý {user} mới được sticker không, hay chỉ mình tui 👀 — đang đứng hạng #{rank} đó",
+        "{user} ơi chỉ tí bí quyết đi, sao được sticker hoài vậy 😩, hạng #{rank} không còn xa nữa",
+        "Tin vui đầu giờ: {user} vừa rinh thêm 🌟, chúc mừng nha 🎉, hiện đang hạng #{rank}",
+        "{user} lại ghi điểm rồi, ai theo dõi bảng xếp hạng giùm coi 📊, lên hạng #{rank} luôn nè",
+        "Nhẹ nhàng thôi {user} ơi, sticker tới tay rồi kìa ✨, giữ vững hạng #{rank}",
+        "{user} vừa được tặng sticker, mong là không phải hối lộ 😏, hạng #{rank} xứng đáng ghê",
+        "Cộng thêm 🌟 cho {user}, server lại thêm một người vui 🥳, top #{rank} rồi đó nha",
+        "{user} đó hả, sao cứ được sticker vậy trời 🥹, hạng #{rank} đáng nể đấy",
+        "Update nhẹ: {user} vừa có thêm sticker, ai gato thì tự biết 😤 (hạng #{rank})",
+        "{user} vừa được sticker, hiện đang đứng hạng #{rank} đó nha 📊",
+        "+1 🌟 cho {user}, leo lên hạng #{rank} luôn rồi nè 🪜",
+        "{user} nhận thêm sticker, giữ vững hạng #{rank} trên bảng xếp hạng 💪",
+        "Cập nhật bảng xếp hạng: {user} đang ở hạng #{rank} sau khi nhận thêm 🌟",
+        "{user} mới được sticker, hạng #{rank} không còn xa nữa đâu 😎"
+      ],
+      "gifs": [
+        "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+        "https://media.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif",
+        "https://media.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif"
+      ]
+    }
+  },
+  "surpass": {
+    "dethrone": {
+      "templates": [
+        "{surpassed} mất top 1 rồi kìa… {surpasser} làm đó… em không liên quan 🙈",
+        "Một phút mặc niệm cho {surpassed} 🕯️ ngai vàng đã đổi chủ. triều đại {surpasser} chính thức bắt đầu 👑",
+        "RIP {surpassed} ⚰️ bị {surpasser} tiễn khỏi top 1 trong một nốt nhạc. F trong chat đi mọi người",
+        "Biến căng: {surpasser} lật đổ {surpassed} khỏi ngai vàng 👑 chuyện gì đang xảy ra vậy",
+        "{surpassed} ơi dậy đi, mất ghế top 1 vào tay {surpasser} rồi còn ngủ 😴",
+        "Vua băng hà, vua mới muôn năm 👑 {surpasser} thay {surpassed} trị vì từ hôm nay",
+        "Plot twist 🎬 {surpasser} soán ngôi {surpassed} ngay phút 90",
+        "Lịch sử sang trang 📜 {surpasser} hạ bệ {surpassed}, ai ngờ được",
+        "{surpassed} giữ ngai lâu quá nên {surpasser} mượn lại xíu 🤭",
+        "Tin nóng 🚨 cung điện đổi chủ, {surpasser} đuổi {surpassed} xuống ghế phụ"
+      ],
+      "gifs": [
+        "https://media.giphy.com/media/chzz1FQgqhytWRWbp3/giphy.gif",
+        "https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif",
+        "https://media.giphy.com/media/l0HlvtIPzPdt2usKs/giphy.gif",
+        "https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif"
+      ]
+    },
+    "multi": {
+      "templates": [
+        "{surpasser} leo qua đầu {surpassed} luôn một lượt, đỡ sao nổi 🫠",
+        "Combo vượt 💨 {surpasser} bỏ lại {surpassed} phía sau trong một nốt nhạc",
+        "{surpassed} ơi tụ tập lại chia buồn nè, {surpasser} vừa phóng qua hết 🏃‍♂️💨",
+        "{surpasser} chơi kiểu gì mà vượt nguyên team {surpassed} vậy 🤯",
+        "Xin chia buồn cùng {surpassed} 🕯️ {surpasser} đã đi trước về sớm",
+        "Tốc độ bàn thờ 🏍️ {surpasser} lướt qua {surpassed} không kịp chào",
+        "{surpassed} hợp sức lại cũng không cản nổi {surpasser} rồi 😱",
+        "Một bước lên mây ☁️ {surpasser} bước qua {surpassed} cái rẹt",
+        "{surpasser} mở chế độ bay 🛫 {surpassed} chỉ kịp nhìn theo",
+        "Drama nhiều người: {surpassed} cùng lúc bị {surpasser} cho ngửi khói 💨"
+      ]
+    },
+    "regular": {
+      "templates": [
+        "{surpasser} vừa vượt {surpassed} rồi kìa 😏 {surpassed} ơi tỉnh dậy đi nào",
+        "{surpasser} leo qua đầu {surpassed} rồi nè, chịu nổi không? 😤",
+        "Và thế là, {surpassed} bị {surpasser} bỏ lại rồi đấy 🏃‍♂️💨",
+        "{surpassed} ơi... {surpasser} qua mặt rồi kìa 😭",
+        "🔥 {surpasser} vừa vươn lên trên {surpassed} rồi nha! {surpassed} cố lên nhé!!!!",
+        "{surpasser} đi nhẹ nói khẽ cười duyên, tiện tay vượt luôn {surpassed} 🚶‍♀️💨",
+        "Gió đổi chiều rồi 🍃 {surpasser} qua mặt {surpassed} nhẹ nhàng tình cảm",
+        "{surpassed} ngoảnh lại thì {surpasser} đã ở phía trước mất rồi 🥲",
+        "Overtake!! 🏎️ {surpasser} vượt {surpassed} ở khúc cua quyết định",
+        "Ai nghe gì không, hình như tiếng {surpasser} chạy ngang qua {surpassed} 👂"
+      ]
+    }
+  }
+}
